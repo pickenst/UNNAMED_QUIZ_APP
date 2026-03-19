@@ -1,0 +1,84 @@
+services:
+
+  endpoint-dev:
+    build:
+      context: .
+      dockerfile: ./services/endpoint/Dockerfile
+    ports:
+      - ${ENDPOINT_PORT}:${ENDPOINT_PORT}
+    env_file:
+      - .env.docker.dev
+    depends_on:
+      - user-service-dev
+      - query-service-dev
+    restart: unless-stopped
+
+  user-service-dev:
+    build:
+      context: .
+      dockerfile: ./services/user-service/Dockerfile
+    ports:
+      - ${USER_PORT}:${USER_PORT}
+    env_file:
+      - .env.docker.dev
+    depends_on:
+      - db-dev
+      - rabbitmq-dev
+    restart: unless-stopped
+
+  health-dev:
+    build:
+      context: .
+      dockerfile: ./services/health/Dockerfile
+    depends_on:
+      - endpoint-dev
+    env_file:
+      - .env.docker.dev
+    restart: unless-stopped
+
+  query-service-dev:
+    build:
+      context: .
+      dockerfile: ./services/query-service/Dockerfile
+    ports:
+      - ${QUERY_PORT}:${QUERY_PORT}
+    env_file:
+      - .env.docker.dev
+    depends_on:
+      - db-dev
+      - rabbitmq-dev
+    restart: unless-stopped
+
+  socket-service-dev:
+    build:
+      context: .
+      dockerfile: ./services/socket/Dockerfile
+    ports:
+      - ${WS_PORT}:${WS_PORT}
+    env_file:
+      - .env.docker.dev
+    depends_on:
+      - rabbitmq-dev
+    restart: unless-stopped
+
+  db-dev:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: studyo
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  rabbitmq-dev:
+    image: rabbitmq:4.2-management
+    ports:
+      - ${RABBITMQ_PORT}:5672
+      - ${RABBITMQ_MANAGEMENT_PORT}:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+      RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_DEFAULT_VHOST}
+    restart: unless-stopped
+
+volumes:
+  db_data:

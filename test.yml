@@ -1,0 +1,23 @@
+config:
+  target: "http://localhost:8080"
+  phases:
+  - duration: 10
+    arrivalRate: 1
+  - duration: 10
+    arrivalRate: 5
+  - duration: 10
+    arrivalRate: 10
+  - duration: 20
+    arrivalRate: 15
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - name: "Health check"
+    flow:
+      - post:
+          url: "/health"
+          json:
+            # Minimal payload; optional since endpoint generates its own IDs
+            dummy: "ping"

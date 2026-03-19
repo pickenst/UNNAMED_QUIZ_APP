@@ -1,0 +1,1 @@
+{"version":3,"file":"s3-base.d.ts","sourceRoot":"","sources":["../src/s3-base.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,oBAAoB,CAAA;AAO7C,OAAO,KAAK,EAAsB,cAAc,EAAE,gBAAgB,EAAE,MAAM,eAAe,CAAA;AAMzF;;;;GAIG;AACH,wBAAsB,kBAAkB,CAAC,EAAE,EAAE,QAAQ,EAAE,MAAM,EAAE,cAAc,mBAkB5E;AAED;;;;GAIG;AACH,wBAAsB,oBAAoB,CAAC,EAAE,EAAE,QAAQ,EAAE,MAAM,EAAE,gBAAgB,mBAoBhF"}

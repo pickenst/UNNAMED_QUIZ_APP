@@ -1,0 +1,63 @@
+version: '3.9'
+
+#endpoint: 8080
+#user-service: 8081
+#query-service: 8082
+#message-service: 8083
+#processor-service: 8084
+#s3-service: 8085
+
+services:
+  endpoint:
+    build: ./services/endpoint
+    container_name: api-endpoint
+    ports: 
+      - ${ENDPOINT_PORT}:${ENDPOINT_PORT}
+    depends_on:
+      - user-service
+      - query-service
+  
+  user-service:
+    build: ./services/user-service
+    container_name: user-service
+    ports:
+      - ${USER_PORT}:${USER_PORT}
+
+  query-service:
+    build: ./services/query-service
+    container_name: query-service
+    ports:
+      - ${QUERY_PORT}:${QUERY_PORT}
+
+  processor-service:
+    build: ./services/processor-service
+    container_name: processor
+    ports:
+      - ${PROCESSOR_PORT}:${PROCESSOR_PORT}
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: studyo
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:4.2.2
+    container_name: rabbitmq
+    ports:
+      - ${RABBITMQ_PORT}:5672
+      - ${RABBITMQ_MANAGEMENT_PORT}:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+      RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_DEFAULT_VHOST}
+
+
+volumes:
+  db_data:
+
+
+
+
+  

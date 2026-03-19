@@ -1,0 +1,306 @@
+.setup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.setup-card {
+  width: 100%;
+  max-width: 32rem;
+}
+
+.setup-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.setup-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  background-color: var(--bg-secondary);
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.setup-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+}
+
+.setup-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+/* Tabs */
+.setup-tabs {
+  display: flex;
+  background-color: var(--bg-secondary);
+  padding: 0.25rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.5rem;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 0.625rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.tab-button.active {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+}
+
+.tab-button:hover:not(.active) {
+  color: var(--text-main);
+  background-color: rgba(255,255,255,0.05);
+}
+
+.setup-form {
+  position: relative;
+}
+
+.setup-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.125rem;
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  outline: none;
+  transition: all 0.2s;
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+}
+
+.setup-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px var(--primary-fade);
+}
+
+.setup-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* File List Scroll View */
+.file-list-scroll {
+  max-height: 12rem; /* Approx 3-4 items */
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 0.25rem;
+}
+
+.file-list-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.file-list-scroll::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.file-list-scroll::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+}
+
+.file-list-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--text-main);
+}
+
+/* Upload Area */
+.upload-area {
+  border: 2px dashed var(--border-color);
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Compact version for when files exist, if needed, but standard is fine too */
+.upload-area.compact {
+  padding: 1rem;
+  flex-direction: row;
+}
+
+.upload-area:hover, .upload-area.dragging {
+  border-color: var(--primary-color);
+  background-color: var(--bg-secondary);
+}
+
+.upload-icon-large {
+  color: var(--text-secondary);
+  width: 3rem;
+  height: 3rem;
+}
+
+.upload-area:hover .upload-icon-large {
+  color: var(--primary-color);
+}
+
+.upload-text-main {
+  font-weight: 500;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.upload-text-sub {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.file-preview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  flex-shrink: 0; /* Prevent shrinking in flex container */
+}
+
+.file-info {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+}
+
+.file-name {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-size {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.remove-file-btn {
+  color: var(--text-secondary);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-file-btn:hover {
+  background-color: var(--error-bg);
+  color: var(--error-color);
+}
+
+/* Button & Suggestions */
+.setup-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  background-color: var(--primary-color);
+  color: #ffffff; /* Always white on primary button */
+  padding: 0 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.setup-button.full-width {
+  position: static;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.setup-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.setup-button:active {
+  transform: translateY(0);
+}
+
+.setup-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.setup-suggestions {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.suggestion-btn {
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-secondary);
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  text-align: left;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.suggestion-btn:hover {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}

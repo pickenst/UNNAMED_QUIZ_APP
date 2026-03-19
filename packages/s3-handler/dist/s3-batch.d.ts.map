@@ -1,0 +1,1 @@
+{"version":3,"file":"s3-batch.d.ts","sourceRoot":"","sources":["../src/s3-batch.ts"],"names":[],"mappings":"AAGA,OAAO,KAAK,EAAsB,qBAAqB,EAAE,mBAAmB,EAAE,MAAM,eAAe,CAAA;AACnG,OAAO,EAAE,QAAQ,EAAE,MAAM,oBAAoB,CAAC;AAG9C,wBAAsB,wBAAwB,CAAC,EAAE,EAAE,QAAQ,EAAE,MAAM,EAAE,mBAAmB,mBAavF;AAED,wBAAsB,0BAA0B,CAAC,EAAE,EAAE,QAAQ,EAAE,MAAM,EAAE,qBAAqB,mBAQ3F"}

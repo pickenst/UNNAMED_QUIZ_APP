@@ -1,0 +1,10 @@
+.env*
+node_modules
+.vscode
+test/
+
+
+# Track example env skeleton
+
+!.env.example
+/generated/prisma

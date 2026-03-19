@@ -1,0 +1,17 @@
+{
+  "name": "health",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@quizify/rabbit-handler": "*",
+    "dotenv": "^17.2.3"
+  }
+}
